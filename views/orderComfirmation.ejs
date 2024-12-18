@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<div class="order-confirmation">
+    <h2>Order Confirmation</h2>
+    <p>Thank you, <%= order.studentname %>! Thanks. Your order has been placed successfully.</p>
+    <p><strong>Student ID:</strong> <%= order.studentid %></p>
+    <p><strong>Order Details:</strong></p>
+    <ul>
+      <li>Mixed Juice: <%= order.mjuice %></li>
+      <li>Berry Juice: <%= order.bjuice %></li>
+      <li>Apple Juice: <%= order.ajuice %></li>
+    </ul>
+    <p><strong>Subtotal:</strong> $<%= order.subtotal.toFixed(2) %></p>
+    <p><strong>Tax:</strong> $<%= order.tax.toFixed(2) %></p>
+    <p><strong>Total:</strong> $<%= order.total.toFixed(2) %></p>
+  </div>
+  
+
+<%- include('partials/footer') %>
+
+

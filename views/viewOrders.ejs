@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Orders</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <!-- For Logout Button -->
+  <form action="/logout" method="POST" style="display:inline;">
+    <button type="submit">Logout</button>
+  </form>
+
+  <div class="container">
+    <h2>All Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Student ID</th>
+          <th>Mango Juice</th>
+          <th>Berry Juice</th>
+          <th>Apple Juice</th>
+          <th>Subtotal</th>
+          <th>Tax</th>
+          <th>Total</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.studentname %></td>
+          <td><%= order.studentid %></td>
+          <td><%= order.mjuice %></td>
+          <td><%= order.bjuice %></td>
+          <td><%= order.ajuice %></td>
+          <td>$<%= order.subtotal.toFixed(2) %></td>
+          <td>$<%= order.tax.toFixed(2) %></td>
+          <td>$<%= order.total.toFixed(2) %></td>
+          <td>
+            <form action="/deleteOrder/<%= order._id %>" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

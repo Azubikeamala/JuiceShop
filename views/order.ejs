@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<div class="order-form">
+    <h2>Place Your Order</h2>
+
+    <!-- This Displays errors -->
+    <% if (error) { %>
+        <div class="error-message">
+            <p><%= error %></p>
+        </div>
+    <% } %>
+
+    <form action="/submit-order" method="POST">
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" name="studentName" />
+        
+        <label for="studentID">Student ID (XXX-XXXX)</label>
+        <input type="text" id="studentID" name="studentID" />
+        
+        <!-- This Selects juices -->
+        <label for="mango">Mango Juice</label>
+        <input type="number" id="mango" name="mango" min="0" />
+        
+        <label for="berry">Berry Juice</label>
+        <input type="number" id="berry" name="berry" min="0" />
+        
+        <label for="apple">Apple Juice</label>
+        <input type="number" id="apple" name="apple" min="0" />
+
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
